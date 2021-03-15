@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <div class="main">
+
+        <form action="" method="POST" class="form" id="form-2">
+            <h3 class="heading">Đăng ký</h3>
+
+            <div class="spacer"></div>
+
+            <div class="form-group">
+                <label for="fullname" class="form-label">Họ và tên</label>
+                <input name="fullname" type="text" rules="required" placeholder="VD: Nguyễn Thành Đạt"
+                    class="form-control">
+                <span class="form-message"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="email" class="form-label">Email</label>
+                <input name="email" type="text" rules="required|email" placeholder="VD: email@domain.com"
+                    class="form-control">
+                <span class="form-message"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="password" class="form-label">Mật khẩu</label>
+                <input name="password" type="password" rules="required|min:6" placeholder="Nhập mật khẩu"
+                    class="form-control">
+                <span class="form-message"></span>
+            </div>
+            <div class="form-group">
+                <label for="reactjs" class="form-label">Reactjs</label>
+                <input name="reactjs" type="checkbox" rules="required" class="form-control">
+                <span class="form-message"></span>
+            </div>
+
+            <button class="form-submit">Đăng nhập</button>
+        </form>
+
+    </div>
+    <script src="main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            Validator('#form-2', '.form-group', '.form-message', {
+                onSubmit: function (data) {
+                    console.log(data)
+                }
+            });
+        })
+    </script>
+</body>
+
+</html>
