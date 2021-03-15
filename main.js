@@ -36,7 +36,11 @@ function Validator(formSelector, group, errorMess, options = {}) {
         },
         retypePassword: function (value) {
             let ele = document.querySelector('[name=password]').value;
-            return value.length == ele ? undefined : "Mật khẩu nhập lại không chính xác"
+            return value == ele ? undefined : "Mật khẩu nhập lại không chính xác"
+        },
+        phone: function (value) {
+            var phoneNumber = /^(0|\+84)(\s|\.)?((3[2-9])|(5[689])|(7[06-9])|(8[1-689])|(9[0-46-9]))(\d)(\s|\.)?(\d{3})(\s|\.)?(\d{3})$/;
+            return phoneNumber.test(value) ? undefined : 'Số điện thoại không hợp lệ'
         }
 
     };

@@ -26,7 +26,14 @@
 
             <div class="form-group">
                 <label for="email" class="form-label">Email</label>
-                <input name="email" type="text" rules="required|email" placeholder="VD: email@domain.com"
+                <input name="email" type="text" rules="required|email" placeholder="email@domain.com"
+                    class="form-control">
+                <span class="form-message"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="phoneNumber" class="form-label">Số điện thoại</label>
+                <input name="phoneNumber" type="text" rules="required|phone" placeholder="012 - 1234 - 123"
                     class="form-control">
                 <span class="form-message"></span>
             </div>
@@ -37,9 +44,11 @@
                     class="form-control">
                 <span class="form-message"></span>
             </div>
+
             <div class="form-group">
-                <label for="reactjs" class="form-label">Reactjs</label>
-                <input name="reactjs" type="checkbox" rules="required" class="form-control">
+                <label for="retypePassword" class="form-label">Nhập lại mật khẩu</label>
+                <input name="retypePassword" type="password" rules="required|retypePassword" placeholder="Nhập mật khẩu"
+                    class="form-control">
                 <span class="form-message"></span>
             </div>
 
