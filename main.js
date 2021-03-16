@@ -1,6 +1,13 @@
 function Validator(formSelector, group, errorMess, options = {}) {
     var formRules = {}
 
+    // tạo style message error
+    var style = document.createElement('style');
+    style.type = 'text/css';
+    style.innerHTML = `${group}.invalid input { border-color: #f33a58; } ${group}.invalid ${errorMess} { color: #f33a58; }`;
+    document.getElementsByTagName('head')[0].appendChild(style);
+
+
     function getParent(element, selector) {
         while (element.parentElement) {
             if (element.parentElement.matches(selector)) {

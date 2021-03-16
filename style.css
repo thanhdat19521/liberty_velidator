@@ -69,14 +69,6 @@ html {
     border-color: #1dbfaf;
 }
 
-.form-group.invalid .form-control {
-    border-color: #f33a58;
-}
-
-.form-group.invalid .form-message {
-    color: #f33a58;
-}
-
 .form-message {
     font-size: 1.2rem;
     line-height: 1.6rem;
