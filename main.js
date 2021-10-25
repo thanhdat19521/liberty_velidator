@@ -92,7 +92,21 @@ function Validator(formSelector, group, errorMess, options = {}) {
             input.oninput = handleClearError;
         }
 
-        // hàm thực hiện validate
+        // hàm clear error
+        function handleClearError(e) {
+            var formGroup = getParent(e.target, group);
+            if (formGroup.classList.contains('invalid')) {
+                formGroup.classList.remove('invalid');
+
+                var formMessage = formGroup.querySelector(errorMess);
+                if (formMessage) {
+                    formMessage.innerText = "";
+                };
+            }
+        }
+    }
+    
+    // hàm thực hiện validate
         function handleValidate(e) {
             var rules = formRules[e.target.name];
             var errorMessage;
@@ -120,20 +134,6 @@ function Validator(formSelector, group, errorMess, options = {}) {
             return !errorMessage;
         }
 
-        // hàm clear error
-        function handleClearError(e) {
-            var formGroup = getParent(e.target, group);
-            if (formGroup.classList.contains('invalid')) {
-                formGroup.classList.remove('invalid');
-
-                var formMessage = formGroup.querySelector(errorMess);
-                if (formMessage) {
-                    formMessage.innerText = "";
-                };
-            }
-        }
-    }
-
     // xử lý hành vi submit form
 
     formElement.onsubmit = function (e) {
@@ -150,7 +150,7 @@ function Validator(formSelector, group, errorMess, options = {}) {
 
         if (isValid) {
             if (typeof options.onSubmit === 'function') {
-                var dataValue = document.querySelectorAll(formSelector + ' input');
+                var dataValue = formElement.querySelectorAll('[name][rules]');
                 var data = {}
 
                 for (var input of dataValue) {
